@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title"></h1>
+    <p id="description"></p>
+    <p id="question"></p>
+    <input type="text" id="regex-input" placeholder="answer here" onchange="checkInput(event)" autofocus>
+    <br>
+    <br>
+    <button id="reset-button" onclick="resetToLevelOne()">reset to lvl 1</button>
+</body>
+<script type="module">
+    import RegexChallengeAPI from "./api.js"
+
+    window.rgAPI = RegexChallengeAPI
+
+    let levelData = rgAPI.getLevel(localStorage.getItem("levelCode"))
+
+    document.getElementById("title").innerHTML = levelData.question.title
+    document.getElementById("description").innerHTML = levelData.question.description
+    document.getElementById("question").innerHTML = levelData.question.text
+</script>
+<script>
+    function checkInput(event) {
+
+        let levelData = rgAPI.getLevel(localStorage.getItem("levelCode"))
+
+        const answer = {
+            type: levelData.question.type,
+            levelCode: levelData.levelCode,
+            text: event.target.value
+        }
+
+        const response = rgAPI.checkAnswer(answer)
+        console.log(answer)
+        console.log(response)
+        if (response.status === "success") {
+            console.log("level up!")
+            localStorage.setItem("levelCode", response.levelCode)
+        }
+        else {
+            console.log("no level up :(")
+        }
+
+        render()
+    }
+
+    function render() {
+        let levelData = rgAPI.getLevel(localStorage.getItem("levelCode"))
+
+        document.getElementById("title").innerHTML = levelData.question.title
+        document.getElementById("description").innerHTML = levelData.question.description
+        document.getElementById("question").innerHTML = levelData.question.text
+        document.getElementById("regex-input").value = ""
+    }
+
+    function resetToLevelOne() {
+        localStorage.setItem("levelCode", null)
+        render()
+    }
+</script>
+</html>
