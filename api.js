@@ -65,6 +65,11 @@ class RegexChallengeAPI {
             correctness.description = currentLevel.answer.description
         }
 
+        if (answer.type ==="regex") {
+            correctness.correct = answer.text === currentLevel.answer.correct
+            correctness.description = currentLevel.answer.description
+        }
+
         return correctness
     }
 

@@ -5,7 +5,8 @@ export default [
                 'subtitle': 'Patterns and flags', 
                 'description': 'Write a regex that matches the first "will" in the text below',
                 'text': 'We will, we will, rock you!',
-                'type': 'regex'
+                'type': 'regex',
+                'difficulty': 'easy'
             },
             'answer': {
                 'correct': '/will/',
@@ -20,7 +21,8 @@ export default [
                 'subtitle': 'Patterns and flags', 
                 'description': 'Match both occurences of "will" in the text below',
                 'text': 'We will, we will, rock you!',
-                'type': 'regex'
+                'type': 'regex',
+                'difficulty': 'easy'
             },
             'answer': {
                 'correct': '/will/g',
@@ -35,7 +37,8 @@ export default [
                 'subtitle': 'Patterns and flags', 
                 'description': 'Write a regex that matches both "We" and "we" in the text below.',
                 'text': 'We will, we will, rock you!',
-                'type': 'regex'
+                'type': 'regex',
+                'difficulty': 'easy'
             },
             'answer': {
                 'correct': '/we/gi',
@@ -50,7 +53,8 @@ export default [
                 'subtitle': 'Character classes', 
                 'description': 'Write a regex that takes a phonenumber of this format: +7(903)-123-45-67 and returns only the digits. like: 79031234567 in this example'  ,
                 'text': 'We will, we will, rock you!',
-                'type': 'regex'
+                'type': 'regex',
+                'difficulty': 'easy'
             },
             'answer': {
                 'correct': '/\\d/g',
@@ -65,7 +69,8 @@ export default [
                 'subtitle': 'Character classes - inverse classes', 
                 'description': 'What\'s the character class that matches every characters EXCEPT a digit?'  ,
                 'text': '',
-                'type': 'text'
+                'type': 'text',
+                'difficulty': 'easy'
             },
             'answer': {
                 'correct': '\\D',
@@ -80,7 +85,8 @@ export default [
                 'subtitle': 'Anchors', 
                 'description': 'What\'s the character class that matches every characters EXCEPT a digit?'  ,
                 'text': '',
-                'type': 'text'
+                'type': 'text',
+                'difficulty': 'easy'
             },
             'answer': {
                 'correct': '\\D',
